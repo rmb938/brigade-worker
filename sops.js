@@ -1,4 +1,4 @@
-const { events, Job, Group } = require("brigadier");
+const { events, Job, Group } = require("./brigadier");
 
 class SopsJob extends Job {
   constructor(encryptedPath, decryptedPath) {
