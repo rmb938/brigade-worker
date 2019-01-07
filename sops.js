@@ -2,6 +2,7 @@ const { Job } = require("./brigadier");
 
 exports.SopsJob = function (encryptedPath, decryptedPath) {
   j = new Job("sops", "mozilla/sops:latest")
+  j.shell = "/bin/bash"
 
   j.tasks = [
     'set -o pipefail',
