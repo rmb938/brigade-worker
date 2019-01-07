@@ -1,6 +1,6 @@
 const { Job } = require("./brigadier");
 
-class SopsJob extends Job {
+export class SopsJob extends Job {
   constructor(encryptedPath, decryptedPath) {
     super("sops", "mozilla/sops:latest");
 
