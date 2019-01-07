@@ -5,13 +5,13 @@ class SopsJob extends Job {
     super("sops", "mozilla/sops:latest");
 
     this.tasks = [
-      `set -o pipefail`,
-      `set -x`,
+      'set -o pipefail',
+      'set -x',
       `ls -la ${encryptedPath}`,
       `for filepath in ${encryptedPath}/*; do`,
       'filename=`basename $filepath`',
       `sops -d ${encryptedPath}/$filename > ${decryptedPath}/$filename`,
-      `done`,
+      'done',
       `ls -la ${decryptedPath}`
     ];
   }
