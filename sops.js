@@ -5,7 +5,8 @@ exports.SopsJob = function (encryptedPath, decryptedPath) {
   j.shell = "/bin/bash"
 
   j.tasks = [
-    'set -o pipefail',
+    // waiting for https://github.com/Azure/brigade/pull/759 to be released
+    // 'set -o pipefail',
     'set -x',
     `ls -la ${encryptedPath}`,
     `for filepath in ${encryptedPath}/*; do`,
