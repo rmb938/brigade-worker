@@ -6,6 +6,7 @@ exports.Notify = class Notify {
     this.event = e
     this.name = name;
     this.detailsURL = `https://kashti.brigade.kube0.kubernetes.rmb938.com/builds/${e.buildID}`;
+    this.text = "";
 
     // One of: "pending", "error", "failure", or "success".
     this.state = "pending";
