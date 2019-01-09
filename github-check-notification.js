@@ -1,6 +1,6 @@
 const { Job } = require("./brigadier");
 
-exports.Notification = class Notification {
+exports.CheckNotification = class Notification {
   constructor(name, e, p) {
     this.proj = p;
     this.payload = e.payload;
@@ -39,7 +39,7 @@ exports.Notification = class Notification {
 }
 
 // Helper to wrap a job execution between two notifications.
-exports.NotificationWrap = async function (job, note) {
+exports.CheckNotificationWrap = async function (job, note) {
   try {
     let res = await job.run();
     const logs = await job.logs();
