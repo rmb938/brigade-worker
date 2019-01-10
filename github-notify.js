@@ -14,7 +14,7 @@ exports.Notify = class Notify {
 
   // Send a new notification, and return a Promise<result>.
   run() {
-    var j = new Job(`${this.name}-${this.count}`, "technosophos/github-notify:latest");
+    var j = new Job(`${this.name}`, "technosophos/github-notify:latest");
     j.imageForcePull = true;
     j.env = {
       GH_REPO: this.proj.repo.name,
@@ -25,7 +25,7 @@ exports.Notify = class Notify {
       GH_TARGET_URL: this.detailsURL,
 
       // We get the token from the project's secrets section.
-      GH_TOKEN: this.event.payload['token'], // YOU MUST SET THIS IN YOUR PROJECT
+      GH_TOKEN: this.proj.secrets.ghToken, // YOU MUST SET THIS IN YOUR PROJECT
 
       GH_COMMIT: this.event.commit,
     };
