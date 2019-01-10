@@ -33,9 +33,10 @@ exports.Notify = class Notify {
   }
 }
 
-exports.NotifyWrap = async function (job, note) {
+exports.NotifyWrap = async function (group, note) {
+  await note.run();
   try {
-    let res = await job.run();
+    let res = await group.runEach();
     note.state = "success";
     return await note.run();
   } catch (e) {
