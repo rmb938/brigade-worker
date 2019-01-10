@@ -26,8 +26,6 @@ exports.Notify = class Notify {
 
       // We get the token from the project's secrets section.
       GH_TOKEN: this.proj.secrets.ghToken, // YOU MUST SET THIS IN YOUR PROJECT
-
-      GH_COMMIT: this.event.commit,
     };
     return j.run();
   }
