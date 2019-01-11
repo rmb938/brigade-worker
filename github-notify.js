@@ -4,7 +4,8 @@ exports.Notify = class Notify {
   constructor(name, e, p) {
     this.proj = p;
     this.event = e
-    this.name = name;
+    this.name = `${name}-pre`;
+    this.context = name;
     this.detailsURL = `https://kashti.brigade.kube0.kubernetes.rmb938.com/builds/${e.buildID}`;
     this.text = "";
 
@@ -20,7 +21,7 @@ exports.Notify = class Notify {
       GH_REPO: this.proj.repo.name,
       GH_STATE: this.state,
       GH_DESCRIPTION: this.text,
-      GH_CONTEXT: this.name,
+      GH_CONTEXT: this.context,
 
       GH_TARGET_URL: this.detailsURL,
 
