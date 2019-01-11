@@ -34,7 +34,9 @@ exports.Notify = class Notify {
 }
 
 exports.NotifyWrap = async function (group, note) {
+  note.name = `${note.name}-pre`
   await note.run();
+  note.name = `${note.name}-post`
   try {
     let res = await group.runEach();
     note.state = "success";
